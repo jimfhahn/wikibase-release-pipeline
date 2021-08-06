@@ -15,7 +15,7 @@ services:
       - quickstatements-data:/quickstatements/data
 
       ## Uncomment this next line to enable installation of additional services
-      #- ./extra-install.sh:/extra-install.sh
+      - ./extra-install.sh:/extra-install.sh
 
       ## Uncomment this next line to mount your own LocalSettings.php file
       #- ./LocalSettings.php:/var/www/html/LocalSettings.d/LocalSettings.override.php
@@ -23,9 +23,9 @@ services:
     networks:
       default:
         aliases:
-         - wikibase.svc # CONFIG - Add your real wikibase hostname here, only for internal names and when NOT terminating SSL outside the container.
+         - localhost # CONFIG - Add your real wikibase hostname here, only for internal names and when NOT terminating SSL outside the container.
     environment:
-      - DB_SERVER=mysql.svc:3306
+      - DB_SERVER=mysql:3306
       - MW_ADMIN_NAME=${MW_ADMIN_NAME}
       - MW_ADMIN_PASS=${MW_ADMIN_PASS}
       - MW_ADMIN_EMAIL=${MW_ADMIN_EMAIL}
@@ -52,7 +52,7 @@ services:
     networks:
       default:
         aliases:
-         - mysql.svc
+         - localhost
 
 volumes:
   LocalSettings:
