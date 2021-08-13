@@ -1,5 +1,5 @@
 <?php
-
+$wgWBRepoSettings['conceptBaseUri'] = 'localhost';
 /*******************************/
 /* Enable Federated properties */
 /*******************************/

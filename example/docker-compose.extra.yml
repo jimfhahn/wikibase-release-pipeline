@@ -1,4 +1,3 @@
-# Wikibase for testing
 version: '3'
 
 services:
@@ -12,10 +11,10 @@ services:
     networks:
       default:
         aliases:
-         - wdqs-frontend.svc
+         - localhost
     environment:
       - WIKIBASE_HOST=${WIKIBASE_HOST}
-      - WDQS_HOST=wdqs-proxy.svc
+      - WDQS_HOST=host.docker.internal
   wdqs:
     image: "${WDQS_IMAGE_NAME}"
     restart: unless-stopped
@@ -25,10 +24,10 @@ services:
     networks:
       default:
         aliases:
-         - wdqs.svc
+         - host.docker.internal
     environment:
       - WIKIBASE_HOST=${WIKIBASE_HOST}
-      - WDQS_HOST=wdqs.svc
+      - WDQS_HOST=host.docker.internal
       - WDQS_PORT=9999
     expose:
       - 9999
@@ -36,13 +35,13 @@ services:
     image: "${WDQS_PROXY_IMAGE_NAME}"
     restart: unless-stopped
     environment:
-      - PROXY_PASS_HOST=wdqs.svc:9999
+      - PROXY_PASS_HOST=host.docker.internal:9999
     depends_on:
       - wdqs
     networks:
       default:
         aliases:
-         - wdqs-proxy.svc
+         - host.docker.internal
   wdqs-updater:
     image: "${WDQS_IMAGE_NAME}"
     restart: unless-stopped
@@ -53,15 +52,13 @@ services:
     networks:
       default:
         aliases:
-         - wdqs-updater.svc
+         - host.docker.internal
     environment:
      - WIKIBASE_HOST=${WIKIBASE_HOST}
-     - WDQS_HOST=wdqs.svc
+     - WDQS_HOST=host.docker.internal
      - WDQS_PORT=9999
-     # CONFIG - WIKIBASE_SCHEME can be set to 'https' if the updater should expect https concept uris
   
 volumes:
   LocalSettings:
   query-service-data:
-  quickstatements-data:
   mediawiki-mysql-data:
