@@ -14,10 +14,3 @@ Copy the `template.env` to `.env`
 ```
 docker-compose -f docker-compose.yml -f docker-compose.extra.yml up
 ```
-### MariaDB(MySql) Permissions
-
-Root password for mysql might be buggy in which case one would need to enter the cli for mysql, per: https://stackoverflow.com/questions/41645309/mysql-error-access-denied-for-user-rootlocalhost
-
-1. Open & Edit /etc/my.cnf or /etc/mysql/my.cnf, depending on your distro.
-2. Add skip-grant-tables under [mysqld]
-3. Restart Mysql by Restarting Container with MariaDB
