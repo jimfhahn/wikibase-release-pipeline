@@ -23,7 +23,7 @@ services:
     networks:
       default:
         aliases:
-         - host.docker.internal
+         - localhost
     environment:
       - DB_SERVER=mysql:3306
       - MW_ADMIN_NAME=${MW_ADMIN_NAME}
@@ -52,7 +52,7 @@ services:
     networks:
       default:
         aliases:
-         - host.docker.internal
+         - localhost
 
 volumes:
   LocalSettings:
