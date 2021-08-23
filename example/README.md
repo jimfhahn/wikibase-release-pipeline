@@ -14,4 +14,4 @@ Copy the `template.env` to `.env`
 ```
 docker-compose -f docker-compose.yml -f docker-compose.extra.yml up
 ```
-## Tested for Docker Desktop on Mac: Version 3.5.2 (3.5.2.18)
+## Tested for Docker Desktop on Mac: Version 3.6.0 (3.6.0.5487)
