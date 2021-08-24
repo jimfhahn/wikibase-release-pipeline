@@ -17,7 +17,7 @@ cd wikibase-release-pipeline
 cd example
 
 
-The example Docker Compose for **Mac** configuration consists of two files
+###The example Docker Compose for **Mac** configuration consists of two files
 
 * `docker-compose.yml` contains two services: wikibase and mysql
 * `docker-compose.extra.yml` contains additional services such as: wdqs, wdqs-frontend, elasticsearch and quickstatements 
