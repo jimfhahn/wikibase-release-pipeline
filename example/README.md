@@ -4,11 +4,11 @@
 
 * Install Docker Desktop : https://www.docker.com/products/docker-desktop
 
-* Ensure you have allocated 8 gigs of RAM to your Docker Desktop application. Seetings for RAM can be found in the **resources** tab of the menu, shown here: https://docs.docker.com/desktop/windows/#resources
+* Allocate 8 gigs of RAM to your Docker Desktop application. Seetings for RAM can be found in the **resources** tab of the menu, shown here: https://docs.docker.com/desktop/windows/#resources
 
 [Clone](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository#cloning-a-repository) the repo: 
 
-* git clone https://github.com/jimfhahn/wikibase-release-pipeline (main branch)
+* git clone https://github.com/jimfhahn/wikibase-release-pipeline
 
 ## Navigate to the folder
 
