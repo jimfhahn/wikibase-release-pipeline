@@ -12,14 +12,14 @@
 
 ## Navigate to the folder
 
-cd wikibase-release-pipeline
+* cd wikibase-release-pipeline
 
-cd example
+* cd example
 
-The example docker-compose configuration consists of two files
+### The example docker-compose configuration consists of two files
 
-* `docker-compose.yml` contains two services: wikibase and mysql
-* `docker-compose.extra.yml` contains additional services such as: wdqs, wdqs-frontend, elasticsearch and quickstatements 
+`docker-compose.yml` contains two services: wikibase and mysql
+`docker-compose.extra.yml` contains additional services such as: wdqs, wdqs-frontend, elasticsearch and quickstatements 
 
 ## Configure your installation
 
