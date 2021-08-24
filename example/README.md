@@ -12,21 +12,21 @@
 
 ## Navigate to the folder
 
-cd wikibase-release-pipeline
+* cd wikibase-release-pipeline
 
-cd example
+* cd example
 
 
-###The example Docker Compose for **Mac** configuration consists of two files
+### The example Docker Compose for **Mac** configuration consists of two files
 
-* `docker-compose.yml` contains two services: wikibase and mysql
-* `docker-compose.extra.yml` contains additional services such as: wdqs, wdqs-frontend, elasticsearch and quickstatements 
+`docker-compose.yml` contains two services: wikibase and mysql
+`docker-compose.extra.yml` contains additional services such as: wdqs, wdqs-frontend, elasticsearch and quickstatements 
 
 ## Configure your installation
 
-cp `template.env` to `.env` 
+* cp `template.env` to `.env` 
 
-### Run with the pre-configured settings
+## Run with the pre-configured settings
 
 ```
 docker-compose -f docker-compose.yml -f docker-compose.extra.yml up
