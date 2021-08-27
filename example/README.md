@@ -1,5 +1,9 @@
 # Example docker-compose configuration Docker Desktop for Windows
 
+## Resources:
+
+* Git-Bash for Windows is an excellent tool for using command line git on Windows: https://gitforwindows.org/
+
 ## Requirements:
 
 * Install Docker Desktop : https://www.docker.com/products/docker-desktop
@@ -30,3 +34,4 @@
 ```
 docker-compose -f docker-compose.yml -f docker-compose.extra.yml up
 ```
+## Tested on Windows 10 Education Edition (version 1909). Docker Desktop for Windows (3.5)
