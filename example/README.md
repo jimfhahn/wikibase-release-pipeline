@@ -24,11 +24,15 @@
 
 ## Configure your installation
 
-* cp `template.env` to `.env` 
+```
+cp `template.env` `.env` 
+```
 
 ## Run with the pre-configured settings
 
 ```
 docker-compose -f docker-compose.yml -f docker-compose.extra.yml up
 ```
-## Tested for Docker Desktop on Mac: Version 3.6.0 (3.6.0.5487)
+## Tested for Docker Desktop on Mac: Version 4.5.0 (74594)
+
+
