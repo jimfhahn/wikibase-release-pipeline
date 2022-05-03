@@ -33,6 +33,8 @@ cp template.env .env
 ```
 docker-compose -f docker-compose.yml -f docker-compose.extra.yml up
 ```
-## Tested for Docker Desktop on Mac: Version 4.5.0 (74594)
+## Tested for Docker Desktop on Mac: 4.7.1 (77678) w/ Apple M1 Pro chip.
+
+
 
 
