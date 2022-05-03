@@ -25,7 +25,7 @@
 ## Configure your installation
 
 ```
-cp `template.env` `.env` 
+cp template.env .env
 ```
 
 ## Run with the pre-configured settings
