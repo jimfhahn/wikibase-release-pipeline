@@ -20,7 +20,7 @@
 ### The example Docker Compose for **Mac** configuration consists of two files
 
 * `docker-compose.yml` contains two services: wikibase and mysql
-* `docker-compose.extra.yml` contains additional services such as: wdqs, wdqs-frontend, elasticsearch and quickstatements 
+* `docker-compose.extra.yml` contains additional services such as: wdqs, wdqs-updater, wdqs-frontend.
 
 ## Configure your installation
 
@@ -28,12 +28,23 @@
 cp template.env .env
 ```
 
-## Run with the pre-configured settings
+## Intel CPU
 
 ```
 docker-compose -f docker-compose.yml -f docker-compose.extra.yml up
 ```
-## Tested for Docker Desktop on Mac: 4.7.1 (77678) w/ Apple M1 Pro chip.
+This will start up the services defined in docker-compose.yml, a Wikibase instance, and MySQL database. Some additional services for the Wikibase Query Service, wdqs, wdqs-updater, wdqs-frontend are included.
+
+## M1 CPU 
+
+```
+docker-compose up
+```
+
+This will start up the services defined in docker-compose.yml, a Wikibase instance, and MySQL database.
+
+
+## Tested on Docker Desktop on Mac: 4.7.1 (77678) w/ Apple M1 Pro chip.
 
 
 
