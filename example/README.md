@@ -23,7 +23,7 @@
 ### The example docker-compose configuration consists of two files
 
 * `docker-compose.yml` contains two services: wikibase and mysql
-* `docker-compose.extra.yml` contains additional services such as: wdqs, wdqs-frontend, elasticsearch and quickstatements 
+* `docker-compose.extra.yml` contains additional services such as: wdqs, wdqs-frontend
 
 ## Configure your installation
 
