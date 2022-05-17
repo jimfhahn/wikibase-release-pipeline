@@ -1,37 +1,68 @@
-# Example docker-compose configuration Docker Desktop for Windows
+# Example docker-compose configuration
 
-## Resources:
-
-* Git-Bash for Windows is an excellent tool for using command line git on Windows: https://gitforwindows.org/
-
-## Requirements:
-
-* Install Docker Desktop : https://www.docker.com/products/docker-desktop
-
-* Allocate 8 gigs of RAM to your Docker Desktop application. Seetings for RAM can be found in the **resources** tab of the menu, shown here: https://docs.docker.com/desktop/windows/#resources
-
-[Clone](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository#cloning-a-repository) the repo: 
-
-* git clone https://github.com/jimfhahn/wikibase-release-pipeline
-
-## Navigate to the folder
-
-* cd wikibase-release-pipeline
-
-* cd example
-
-### The example docker-compose configuration consists of two files
+The example docker-compose configuration consists of two files:
 
 * `docker-compose.yml` contains two services: wikibase and mysql
-* `docker-compose.extra.yml` contains additional services such as: wdqs, wdqs-frontend
+* `docker-compose.extra.yml` contains additional services such as wdqs, wdqs-frontend, elasticsearch and quickstatements 
+
+**We recommend you go through `docker-compose.extra.yml` and remove any unwanted services.**
+
+**This configuration serves as an example of how the images could be used together and isn't production ready**
 
 ## Configure your installation
 
-* cp `template.env` to `.env`
+Copy `template.env` to `.env` and replace the passwords and secrets with your own.
 
-## Run with the pre-configured settings
+## Running a Wikibase instance
+
+To run a Wikibase instance on port 80 run the following command:
+
+```
+docker-compose up
+```
+
+This will start up the services defined in [docker-compose.yml](docker-compose.yml), a Wikibase instance, database and a job runner.
+
+## Job runner
+
+The example docker-compose.yml sets up a dedicated job runner which restarts itself after every job, to ensure that changes to the configuration are picked up as quickly as possible.
+
+If you run large batches of edits, this job runner may not be able to keep up with edits.
+
+You can speed it up by increasing the `MAX_JOBS` variable to run more jobs between restarts, if you’re okay with configuration changes not taking effect in the job runner immediately.
+Alternatively, you can run several job runners in parallel by using the `--scale` option.
+
+```sh
+docker-compose up --scale wikibase_jobrunner=8
+```
+
+## Running additional services
+
+The Wikibase bundle comes with some additional services that can be enabled.
+
+- wdqs
+- wdqs-updater
+- wdqs-frontend
+- quickstatements
+- elasticsearch
+
+### 1. Run with the extra configuration
 
 ```
 docker-compose -f docker-compose.yml -f docker-compose.extra.yml up
 ```
-## Tested on Windows 10 Education Edition (version 1909). Docker Desktop for Windows (3.5)
+
+In the volumes section of the wikibase service in [docker-compose.extra.yml](docker-compose.extra.yml), there is one additional script inside the container that automatically sets up the extensions needed for the additional services.
+
+```yml
+- ./extra-install.sh:/extra-install.sh
+```
+
+Looking inside extra-install.sh, you see that it executes two scripts which set up an OAuth consumer for quickstatements and creates indices for Elasticsearch.
+
+
+There are also additional environment variables passed into Wikibase to configure the Elasticsearch host and port.
+```yml
+  MW_ELASTIC_HOST: ${MW_ELASTIC_HOST}
+  MW_ELASTIC_PORT: ${MW_ELASTIC_PORT}
+```
