@@ -1,4 +1,4 @@
-Install WikibaseImpoer Extension: through Wikibase Bundle CLI 
+Install WikibaseImport Extension: through Wikibase Bundle CLI 
 (all steps)
 ====================================
 ``
